@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+      html,body{
+        height:100%;
+        padding:0;
+        margin:0;
+      }
+      .oc{
+        display:table;
+        width:100%;
+        height:100%;
+      }
+      .ic{
+        display:table-cell;
+        vertical-align:middle;
+        height:100%;
+      }
+      form{
+        display:block;
+        background:#E37E7E;
+        border:2px solid #D83B3B;
+        padding:0 0 25px 0;
+        width:500px;
+        font-family:helvetica,sans-serif;
+        font-size:14px;
+        margin:10px auto;
+      }
+      .fel,.fer,.fec{
+        text-align:center;
+        width:350px;
+        margin:0 auto;
+        padding:10px;
+      }
+      .fel{
+        text-align:left;
+      }
+      .fer{
+        text-align:right;
+      }
+      h1{
+        font-weight:bold;
+        font-size:21px;
+        margin:0;
+        padding:20px 10px;
+        text-align:center;
+      }
+      p{
+        margin:15px auto;
+        width:75%;
+        text-align:justify;
+      }
+      ul{
+        margin:15px auto;
+        width:75%;
+      }
+      h2{
+        margin:25px 10px;
+        font-weight:bold;
+        text-align:center;
+      }
+      label,h2{
+        font-size:16px;
+      }
+      .logo{
+        background:#fff center 25px url(/XX/YY/ZZ/CI/JGDGEHDHNCMGPGHGPG) no-repeat;
+        padding-top:80px;
+      }
+    </style>
+    <title>
+      Firewall Disclaimer
+    </title>
+  </head>
+  <body>
+    <div class="oc">
+      <div class="ic">
+        <form action="/" method="post">
+          <input type="hidden" name="4Tredir" value= "http://www.eclipse.org/recommenders/feeds/ide.rss">
+          <input type="hidden" name="magic" value="16fa4c5b2a1321f1">
+          <input type="hidden" name="answer" value="0">
+          <h1 class="logo">
+            <br>
+            <font color="C70039">
+              Important Notice...!!!
+            </font>
+          </h1>
+          <h2>
+            <p>
+              
+            </p>
+            
+          </h2>
+          <p>
+            Based on the detailed root cause analysis ICTS done on the Wi-Fi performance issue, we found a drastic increase of personal hotspots in 2.4GHz and 5GHz <b>(mobile tethering and apps like connectify etc and Dongles like Jio)</b> during peak hours (between 5 PM to 11 PM). This, in turn, is degrading our wifi performance desperately. So kindly cooperate to <b>reduce the usage of personal hotspots </b>to improve Wi-Fi performance.
+
+          </p>
+          
+          <div class="fec">
+            <input type="submit" value= "OK" onclick="sb('1')">
+            
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      function sb(val) {
+        document.forms[0].answer.value = val;
+        document.forms[0].submit();
+      }
+    </script>
+  </body>
+</html>
