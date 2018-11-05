@@ -1,4 +1,4 @@
-package test;
+//package test;
 
 
 import java.awt.*;  
@@ -9,49 +9,67 @@ class AmritaExam extends JFrame implements ActionListener
 {  
 	public static void main(String[] args) {
 	  
-		AmritaExam a=new AmritaExam("Online Test Of Java");  
+		AmritaExam a = new AmritaExam("Online Test Of Java");  
 
 	}
 	
     JLabel l;  
-    JRadioButton jb[]=new JRadioButton[5];  
-    JButton button1,button2, button3;  
+    JCheckBox jb[]= new JCheckBox[5];  
+    JButton button1,button2, button3, button0; 
+    JButton button4;
+    
     ButtonGroup bg;  
     int total=0,current=0,x=1,y=1,now=0;  
     int m[] = new int[10];      
     AmritaExam(String s)  
     {  
         super(s);  
-        l=new JLabel();  
+        l = new JLabel();  
         add(l);  
-        bg=new ButtonGroup();  
+        bg = new ButtonGroup();  
         for(int i=0;i<5;i++)  
         {  
-            jb[i]=new JRadioButton();     
+            jb[i] = new JCheckBox();     
             add(jb[i]);  
             bg.add(jb[i]);  
         }  
-        button1=new JButton("Next");  
-        button2=new JButton("Bookmark");  
-        button3= new JButton("Average");
+        
+        button0 = new JButton("Previous");
+        button1 = new JButton("Next");  
+        button2 = new JButton("Bookmark");  
+        button3 = new JButton("Percentage");
+        button4 = new JButton("Clear");
+        
+        button0.addActionListener(this);
         button1.addActionListener(this);  
         button2.addActionListener(this);  
         button3.addActionListener(this);  
-        add(button1);add(button2);  
+        button4.addActionListener(this);
+        
+        add(button1);add(button2);add(button0);
+        add(button4);
+        
         set();  
         l.setBounds(30,40,450,20);  
-        jb[0].setBounds(50,80,100,20);  
-        jb[1].setBounds(50,110,100,20);  
-        jb[2].setBounds(50,140,100,20);  
-        jb[3].setBounds(50,170,100,20);  
-        button1.setBounds(100,240,100,30);  
-        button2.setBounds(350,240,130,30);  
+        	
+        jb[0].setBounds(80,80,140,20);  
+        jb[1].setBounds(80,110,140,20);  
+        jb[2].setBounds(80,140,140,20);  
+        jb[3].setBounds(80,170,140,20);  
+        
+        button0.setBounds(70,240,100,30);
+        button1.setBounds(180,240,100,30);  
+        button2.setBounds(400,240,130,30); 
+        button4.setBounds(290, 240, 100, 30);
+        
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+        getContentPane().setBackground(new Color(169, 204, 227));
         setLayout(null);  
         setLocation(250,100);  
         setVisible(true);  
         setSize(600,350);  
     }  
+    
     public void actionPerformed(ActionEvent e)  
     {  
         if(e.getSource()==button1)  
@@ -59,16 +77,42 @@ class AmritaExam extends JFrame implements ActionListener
             if(check())  
                 total=total+1;  
             current++;  
-            set();    
+            set(); 
+            button0.setEnabled(true);
             if(current==9)  
             {  
                 button1.setEnabled(false);  
                 button2.setText("Result");  
             }  
-        }  
+        }
+        if(e.getSource()== button0)  
+        {  
+            if(check())  
+                total=total-1;  
+            current--;  
+            button1.setEnabled(true);  
+            set();    
+            if(current==0)  
+            {  
+            	button0.setEnabled(false);
+            	JOptionPane.showMessageDialog(this,"No Previous Question's");
+            }  
+        }
+        
+        // This Clear is not working 
+        if(e.getSource()== button4)  
+        {   
+            	jb[0].setSelected(false);
+        
+            	jb[1].setSelected(false);
+            		
+            	jb[2].setSelected(false);
+            	jb[3].setSelected(false);
+        }
+        
         if(e.getActionCommand().equals("Bookmark"))  
         {  
-            JButton bk=new JButton("Bookmark"+x);  
+            JButton bk = new JButton("Bookmark"+x);  
             bk.setBounds(480,20+30*x,100,30);  
             add(bk);  
             bk.addActionListener(this);  
@@ -81,13 +125,16 @@ class AmritaExam extends JFrame implements ActionListener
             	button3.setText("Average");
             setVisible(false);  
             setVisible(true);  
-        }  
+        } 
+        
         for(int i=0,y=1;i<x;i++,y++)  
         {  
-        if(e.getActionCommand().equals("Bookmark"+y))  
+        	if(e.getActionCommand().equals("Bookmark"+y))  
         {  
             if(check())  
-                total=total+1;  
+                {
+            		total=total+1;  
+                }
             now=current;  
             current=m[y];  
             set();  
@@ -101,31 +148,32 @@ class AmritaExam extends JFrame implements ActionListener
             if(check())  
                 total=total+1;  
             current++;  
-            int average=total/10;  
+            float percentage = (total/10)*100;  
             JOptionPane.showMessageDialog(this,"All the Very Best Lets See Your Mark Card");
             JOptionPane.showMessageDialog(this,"Total Marks Secured = " + total);  
-            JOptionPane.showMessageDialog(this,"Average Marks=" + average);  
+            JOptionPane.showMessageDialog(this,"Percentage Marks=" + percentage);  
             System.exit(0);
         }  
         
     }  
-    void set()  
+   
+	void set()  
     {  
         jb[4].setSelected(true);  
         if(current==0)  
         {  
-            l.setText("Que1: Which one among these is not a primitive datatype?");  
-            jb[0].setText("int");jb[1].setText("Float");jb[2].setText("boolean");jb[3].setText("char");   
+            l.setText("Que1: The benefits of the Object Orientation are:?");  
+            jb[0].setText("Flexibility");jb[1].setText("Inheritance");jb[2].setText("Maintainability");jb[3].setText("Polymorphism");   
         }  
         if(current==1)  
         {  
-            l.setText("Que2: Which class is available to all the class automatically?");  
-            jb[0].setText("Swing");jb[1].setText("Applet");jb[2].setText("Object");jb[3].setText("ActionEvent");  
+            l.setText("Que2: HAS-A relationships are based on inheritance, rather than usage.  ?");  
+            jb[0].setText("True");jb[1].setText("False");  
         }  
         if(current==2)  
         {  
-            l.setText("Que3: Which package is directly available to our class without importing it?");  
-            jb[0].setText("swing");jb[1].setText("applet");jb[2].setText("net");jb[3].setText("lang");  
+            l.setText("Que3: In Java, the actual method executed is determined by the type of the object and not the type of the reference ?");  
+            jb[0].setText("True");jb[1].setText("False");  
         }  
         if(current==3)  
         {  
@@ -134,8 +182,8 @@ class AmritaExam extends JFrame implements ActionListener
         }  
         if(current==4)  
         {  
-            l.setText("Que5: Which institute is best for java coaching?");  
-            jb[0].setText("Utek");jb[1].setText("Aptech");jb[2].setText("SSS IT");jb[3].setText("jtek");  
+            l.setText("Que5:  Array or collection of superclass references can be used to access a mixture of superclass and subclass objects.  ?");  
+            jb[0].setText("True");jb[1].setText("Flase");  
         }  
         if(current==5)  
         {  
@@ -156,13 +204,13 @@ class AmritaExam extends JFrame implements ActionListener
         }  
         if(current==8)  
         {  
-            l.setText("Que9: which function is not present in Applet class?");  
-            jb[0].setText("init");jb[1].setText("main");jb[2].setText("start");jb[3].setText("destroy");  
+            l.setText("Que9: The relation between Car and Owner or BankAccount and Customer is example for  ?");  
+            jb[0].setText("Aggregation");jb[1].setText("Composition");jb[2].setText("Association");jb[3].setText("None");  
         }  
         if(current==9)  
         {  
-            l.setText("Que10: Which one among these is not a valid component?");  
-            jb[0].setText("JButton");jb[1].setText("JList");jb[2].setText("JButtonGroup");  
+            l.setText("Que10: Subclassing polymorphism is sometimes called “true polymorphism” ?");  
+            jb[0].setText("True");jb[1].setText("False");
                         jb[3].setText("JTextArea");  
         }  
         l.setBounds(30,40,450,20);  
