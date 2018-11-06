@@ -16,7 +16,7 @@ class AmritaExam extends JFrame implements ActionListener
     JLabel l,l1;  
     JLabel label = new JLabel("I'm bold");
     Font font = new Font("Courier", Font.BOLD,12);
-//    label.setFont(font);
+
     JCheckBox jb[]= new JCheckBox[5];  
     JButton button1,button2, button3, button0; 
     JButton button4;
@@ -104,7 +104,7 @@ class AmritaExam extends JFrame implements ActionListener
             }  
         }
         
-        // This Clear is not working 
+        // This Clear button
         if(e.getSource()== button4)  
         {   
             	jb[0].setSelected(false);
@@ -154,8 +154,7 @@ class AmritaExam extends JFrame implements ActionListener
                 total=total+1;  
             current++;  
             float percentage =  (float) ((float)total/10)*100;  
-            System.out.println(total);
-            System.out.println(percentage);
+   
             JOptionPane.showMessageDialog(this,"All the Very Best Lets See Your Mark Card");
             JOptionPane.showMessageDialog(this,"Total Marks Secured = " + total);  
             JOptionPane.showMessageDialog(this,"Percentage Marks =" + percentage);  
