@@ -13,7 +13,10 @@ class AmritaExam extends JFrame implements ActionListener
 
 	}
 	
-    JLabel l;  
+    JLabel l,l1;  
+    JLabel label = new JLabel("I'm bold");
+    Font font = new Font("Courier", Font.BOLD,12);
+//    label.setFont(font);
     JCheckBox jb[]= new JCheckBox[5];  
     JButton button1,button2, button3, button0; 
     JButton button4;
@@ -24,7 +27,9 @@ class AmritaExam extends JFrame implements ActionListener
     AmritaExam(String s)  
     {  
         super(s);  
-        l = new JLabel();  
+        l = new JLabel(); 
+        l1 = new JLabel();
+        add(l1);
         add(l);  
         bg = new ButtonGroup();  
         for(int i=0;i<5;i++)  
@@ -33,7 +38,7 @@ class AmritaExam extends JFrame implements ActionListener
             add(jb[i]);  
             bg.add(jb[i]);  
         }  
-        
+
         button0 = new JButton("Previous");
         button1 = new JButton("Next");  
         button2 = new JButton("Bookmark");  
@@ -53,9 +58,9 @@ class AmritaExam extends JFrame implements ActionListener
         l.setBounds(30,40,450,20);  
         	
         jb[0].setBounds(80,80,140,20);  
-        jb[1].setBounds(80,110,140,20);  
+        jb[1].setBounds(250,80,140,20);  
         jb[2].setBounds(80,140,140,20);  
-        jb[3].setBounds(80,170,140,20);  
+        jb[3].setBounds(250,140,140,20);  
         
         button0.setBounds(70,240,100,30);
         button1.setBounds(180,240,100,30);  
@@ -95,7 +100,7 @@ class AmritaExam extends JFrame implements ActionListener
             if(current==0)  
             {  
             	button0.setEnabled(false);
-            	JOptionPane.showMessageDialog(this,"No Previous Question's");
+            	JOptionPane.showMessageDialog(this,"No Previous Questions");
             }  
         }
         
@@ -148,99 +153,108 @@ class AmritaExam extends JFrame implements ActionListener
             if(check())  
                 total=total+1;  
             current++;  
-            float percentage = (total/10)*100;  
+            float percentage =  (float) ((float)total/10)*100;  
+            System.out.println(total);
+            System.out.println(percentage);
             JOptionPane.showMessageDialog(this,"All the Very Best Lets See Your Mark Card");
             JOptionPane.showMessageDialog(this,"Total Marks Secured = " + total);  
-            JOptionPane.showMessageDialog(this,"Percentage Marks=" + percentage);  
+            JOptionPane.showMessageDialog(this,"Percentage Marks =" + percentage);  
             System.exit(0);
         }  
         
     }  
    
-	void set()  
-    {  
-        jb[4].setSelected(true);  
-        if(current==0)  
-        {  
-            l.setText("Que1: The benefits of the Object Orientation are:?");  
-            jb[0].setText("Flexibility");jb[1].setText("Inheritance");jb[2].setText("Maintainability");jb[3].setText("Polymorphism");   
-        }  
-        if(current==1)  
-        {  
-            l.setText("Que2: HAS-A relationships are based on inheritance, rather than usage.  ?");  
-            jb[0].setText("True");jb[1].setText("False");  
-        }  
-        if(current==2)  
-        {  
-            l.setText("Que3: In Java, the actual method executed is determined by the type of the object and not the type of the reference ?");  
-            jb[0].setText("True");jb[1].setText("False");  
-        }  
-        if(current==3)  
-        {  
-            l.setText("Que4: String class is defined in which package?");  
-            jb[0].setText("lang");jb[1].setText("Swing");jb[2].setText("Applet");jb[3].setText("awt");  
-        }  
-        if(current==4)  
-        {  
-            l.setText("Que5:  Array or collection of superclass references can be used to access a mixture of superclass and subclass objects.  ?");  
-            jb[0].setText("True");jb[1].setText("Flase");  
-        }  
-        if(current==5)  
-        {  
-            l.setText("Que6: Which one among these is not a keyword?");  
-            jb[0].setText("class");jb[1].setText("int");jb[2].setText("get");jb[3].setText("if");  
-        }  
-        if(current==6)  
-        {  
-            l.setText("Que7: Which one among these is not a class? ");  
-            jb[0].setText("Swing");jb[1].setText("Actionperformed");jb[2].setText("ActionEvent");  
-                        jb[3].setText("Button");  
-        }  
-        if(current==7)  
-        {  
-            l.setText("Que8: which one among these is not a function of Object class?");  
-            jb[0].setText("toString");jb[1].setText("finalize");jb[2].setText("equals");  
-                        jb[3].setText("getDocumentBase");         
-        }  
-        if(current==8)  
-        {  
-            l.setText("Que9: The relation between Car and Owner or BankAccount and Customer is example for  ?");  
-            jb[0].setText("Aggregation");jb[1].setText("Composition");jb[2].setText("Association");jb[3].setText("None");  
-        }  
-        if(current==9)  
-        {  
-            l.setText("Que10: Subclassing polymorphism is sometimes called “true polymorphism” ?");  
-            jb[0].setText("True");jb[1].setText("False");
-                        jb[3].setText("JTextArea");  
-        }  
-        l.setBounds(30,40,450,20);  
-        for(int i=0,j=0;i<=90;i+=30,j++)  
-            jb[j].setBounds(50,80+i,200,20);  
-    }  
     boolean check()  
     {  
         if(current==0)  
             return(jb[1].isSelected());  
         if(current==1)  
-            return(jb[2].isSelected());  
+            return(jb[1].isSelected());  
         if(current==2)  
-            return(jb[3].isSelected());  
+            return(jb[2].isSelected());  
         if(current==3)  
-            return(jb[0].isSelected());  
+            return(jb[3].isSelected());  
         if(current==4)  
             return(jb[2].isSelected());  
         if(current==5)  
-            return(jb[2].isSelected());  
+            return(jb[3].isSelected());  
         if(current==6)  
-            return(jb[1].isSelected());  
+            return(jb[2].isSelected());  
         if(current==7)  
             return(jb[3].isSelected());  
         if(current==8)  
-            return(jb[1].isSelected());  
+            return(jb[3].isSelected());  
         if(current==9)  
-            return(jb[2].isSelected());  
+            return(jb[0].isSelected());  
         return false;  
     }
+	
+    void set()  
+    {  
+        jb[4].setSelected(true); 
+//        z.setFont(z.getFont().deriveFont(Font.BOLD, 14f));
+//        l1.setFont(l1.getFont().deriveFont(Font.BOLD, 14f)"Welcome to the Amrita Exam !!");
+        l1.setText("<html><u>Welcome to Amrita Exam</html>");
+        if(current==0)  
+        {  
+            l.setText("Question1: Which one among these is not a primitive datatype?");  
+            jb[0].setText("int");jb[1].setText("enum");jb[2].setText("boolean");jb[3].setText("char");   
+        }  
+        if(current==1)  
+        {  
+            l.setText("Question2: Integer Data type does not include following primitive data type ____________.");  
+            jb[0].setText("double");jb[1].setText("long");jb[2].setText("short");jb[3].setText("byte");  
+        }  
+        if(current==2)  
+        {  
+            l.setText("Question3: Which of the following data types comes under floating data types ?");  
+            jb[0].setText("byte");jb[1].setText("long");jb[2].setText("double");jb[3].setText("int");  
+        }  
+        if(current==3)  
+        {  
+            l.setText("Question4: Character data type cannot store following value.");  
+            jb[0].setText("Special Character");jb[1].setText("Letter");jb[2].setText("Digit");jb[3].setText("String");  
+        }  
+        if(current==4)  
+        {  
+            l.setText("Question5: Which of the following is smallest integer data type ?");  
+            jb[0].setText("long");jb[1].setText("int");jb[2].setText("byte");jb[3].setText("short");  
+        }  
+        if(current==5)  
+        {  
+            l.setText("Question6: Range of Byte Data Type is ____________.");  
+            jb[0].setText("-128 to 256");jb[1].setText("-127 to 128");jb[2].setText("-128 to 255");jb[3].setText("-128 to 127");  
+        }  
+        if(current==6)  
+        {  
+            l.setText("Question7: Which of the following data type(s) can store 64 bit Value. ");  
+            jb[0].setText("int");jb[1].setText("float");jb[2].setText("double");  
+                        jb[3].setText("Button");  
+        }  
+        if(current==7)  
+        {  
+            l.setText("Question8: Default value of String (or any object) in Java Programming is _____________.");  
+            jb[0].setText("0");jb[1].setText("false");jb[2].setText("'\\u0000'");jb[3].setText("null");   
+                        jb[3].setText("getDocumentBase");         
+        }  
+        if(current==8)  
+        {  
+            l.setText("Question9: Java Source Code is compiled into ______________.");  
+            jb[0].setText("Source Code");jb[1].setText(".Obj");jb[2].setText(".Exe");jb[3].setText("Bytecode");  
+        }  
+        if(current==9)  
+        {  
+            l.setText("Question10: Which of the following tool used to execute java code.");  
+            jb[0].setText("java");jb[1].setText("rmic");jb[2].setText("javadoc");  
+                        jb[3].setText("JTextArea");  
+        }  
+        l.setBounds(30,40,700,20);  
+        l1.setBounds(150,20,700,20);  
+        jb[0].setBounds(80,80,140,20);  
+        jb[1].setBounds(250,80,140,20);  
+        jb[2].setBounds(80,140,140,20);  
+        jb[3].setBounds(250,140,140,20);  
+    }  
+	
     
 }
-   
