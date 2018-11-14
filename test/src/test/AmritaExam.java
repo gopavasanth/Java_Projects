@@ -1,4 +1,4 @@
-package testing;
+package test;
 import java.awt.*; 
 import java.awt.event.*; 
 import javax.swing.*; 
@@ -7,7 +7,7 @@ class AmritaExam extends JFrame implements ActionListener
 { 
     public static void main(String[] args) {
      
-        AmritaExam a = new AmritaExam("Online Test Of Java"); 
+        AmritaExam a = new AmritaExam("Amrita Examination"); 
 
     }
    
@@ -31,7 +31,7 @@ class AmritaExam extends JFrame implements ActionListener
         l1 = new JLabel(); 
         add(l1);  
        
-        // Name input
+        // Name input 
         JLabel lblName = new JLabel("Name: ");
         txtName = new JTextField();
         add(txtName);
@@ -43,8 +43,8 @@ class AmritaExam extends JFrame implements ActionListener
         txtName.setColumns(10);
         add(l); 
         bg = new ButtonGroup(); 
-        for(int i=0;i<5;i++) 
-        { 
+       
+        for(int i=0;i<5;i++) { 
             jb[i] = new JCheckBox();    
             add(jb[i]); 
             bg.add(jb[i]); 
@@ -122,9 +122,7 @@ class AmritaExam extends JFrame implements ActionListener
         if(e.getSource()== button4) 
         {  
                 jb[0].setSelected(false);
-       
                 jb[1].setSelected(false);
-                   
                 jb[2].setSelected(false);
                 jb[3].setSelected(false);
         }
@@ -177,7 +175,7 @@ class AmritaExam extends JFrame implements ActionListener
        
     } 
   
-    boolean check() 
+    public boolean check() 
     { 
         if(current==0) 
             return(jb[1].isSelected()); 
@@ -202,7 +200,7 @@ class AmritaExam extends JFrame implements ActionListener
         return false; 
     }
    
-    void set() 
+    public void set() 
     { 
         jb[4].setSelected(true);
 //        z.setFont(z.getFont().deriveFont(Font.BOLD, 14f));
