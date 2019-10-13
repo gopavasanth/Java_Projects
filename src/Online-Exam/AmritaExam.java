@@ -263,6 +263,8 @@ class AmritaExam extends JFrame implements ActionListener
         } 
         l.setBounds(30,40,700,20); 
         l1.setBounds(150,20,700,20); 
+        
+        /// This sets the bounds to the UI (x, y, width, height)
         jb[0].setBounds(80,80,140,20); 
         jb[1].setBounds(250,80,140,20); 
         jb[2].setBounds(80,140,140,20); 
