@@ -1,4 +1,4 @@
-import java.awt.*;  
+    import java.awt.*;  
     import java.awt.event.*;  
     import javax.swing.*;  
       
@@ -94,6 +94,8 @@ import java.awt.*;
                 System.exit(0);  
             }  
         }  
+        
+        // Write all the questions here !
         void set()  
         {  
             jb[4].setSelected(true);  
@@ -154,6 +156,8 @@ import java.awt.*;
             for(int i=0,j=0;i<=90;i+=30,j++)  
                 jb[j].setBounds(50,80+i,200,20);  
         }  
+        
+        // Test all the Answers to the Questions here !
         boolean check()  
         {  
             if(current==0)  
@@ -178,6 +182,7 @@ import java.awt.*;
                 return(jb[2].isSelected());  
             return false;  
         }  
+        
         public static void main(String s[])  
         {  
             new test("Online Test Of Java");  
