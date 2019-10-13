@@ -12,6 +12,7 @@ import java.awt.*;
         int m[]=new int[10];      
         test(String s)  
         {  
+            // Super is a constuctor class to call 
             super(s);  
             l=new JLabel();  
             add(l);  
