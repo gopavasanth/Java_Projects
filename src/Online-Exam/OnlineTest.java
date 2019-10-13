@@ -163,6 +163,8 @@ class AmritaExam extends JFrame implements ActionListener
         for(int i=0,j=0;i<=90;i+=30,j++)  
             jb[j].setBounds(50,80+i,200,20);  
     }  
+    
+    // Check Ansewers to the given questions.
     boolean check()  
     {  
         if(current==0)  
@@ -187,6 +189,8 @@ class AmritaExam extends JFrame implements ActionListener
             return(jb[2].isSelected());  
         return false;  
     }
+    
+    // Main function
     public static void main(String[] args) {
     	  
             AmritaExam a=new AmritaExam("Online Test Of Java");  
